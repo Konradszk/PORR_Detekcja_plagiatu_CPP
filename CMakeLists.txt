@@ -3,4 +3,4 @@ project(PORR)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(PORR main.cpp Text.cpp Text.h cmake-build-debug/Controller.cpp cmake-build-debug/Controller.h)
+add_executable(PORR main.cpp Text.cpp Text.h Controller.cpp Controller.h)
