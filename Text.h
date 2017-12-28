@@ -7,6 +7,10 @@
 
 
 class Text {
+public:
+    Text();
+
+public:
 
 };
 
