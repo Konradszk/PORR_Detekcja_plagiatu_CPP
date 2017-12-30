@@ -18,12 +18,12 @@ public:
 private:
 public:
     Text(std::string filePath);
-    std::vector<std::string> getListOfWordsFromText();
-    static std::vector<char> listOfCharactersToChange;
+    std::list<std::string> getListOfWordsFromText();
+    static std::list<char> listOfCharactersToChange;
     void readText();
 
 private:
-    std::vector <std::string> listOfWordsFromText;
+    std::list <std::string> listOfWordsFromText;
     std::string filePath;
     void getWordsFromFile();
     std::string changeCharacter(std::string s);

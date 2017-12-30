@@ -10,9 +10,9 @@ Text::Text(std::string filePath): filePath(filePath) {
     Text::getWordsFromFile();
 }
 
-std::vector<char> Text::listOfCharactersToChange = {'.', ',', ';', ':', ')', '(', '-', '[', ']', '?', '!'};
+std::list<char> Text::listOfCharactersToChange = {'.', ',', ';', ':', ')', '(', '-', '[', ']', '?', '!'};
 
-std::vector<std::string> Text::getListOfWordsFromText() {
+std::list<std::string> Text::getListOfWordsFromText() {
     return listOfWordsFromText;
 }
 
@@ -30,14 +30,11 @@ void Text::getWordsFromFile() {
     }
     fin.close(); // Close that file!
 
-    for (int i = 0; i < listOfWordsFromText.size(); ++i)
-        std::cout << listOfWordsFromText.at(i) << std::endl; // Print so I can see this all worked!
-
 }
 
 void Text::readText(){
-    for (int i = 0; i < listOfWordsFromText.size(); ++i)
-        std::cout << listOfWordsFromText.at(i) << std::endl; // Print so I can see this all worked!
+    for (std::list<std::string>::iterator it = listOfWordsFromText.begin(); it!=listOfWordsFromText.end(); it++)
+        std::cout << *it << std::endl; // Print so I can see this all worked!
 
 }
 
@@ -45,9 +42,9 @@ std::string Text::RemoveChar(std::string str, char c)
 {
     std::string result;
 
-    for (size_t i = 0; i < str.size(); i++) //zamienia jeden znak w słowie
+    for(std::string::iterator it = str.begin(); it!=str.end(); it++)
     {
-        char currentChar = str[i];
+        char currentChar = *it;
         if (currentChar != c)
             result += currentChar;
     }
@@ -57,10 +54,9 @@ std::string Text::RemoveChar(std::string str, char c)
 
 std::string Text::RemoveAllChars (std::string str) {
     std::string str2 = str;
-    for (int ch = 0; ch <
-                     Text::listOfCharactersToChange.size(); ch++) //iteruje po znakach wliscie i spr czy rowny konkretnemu znakowi ze słowa
+    for(std::list<char>::iterator it = Text::listOfCharactersToChange.begin(); it!=Text::listOfCharactersToChange.end(); it++)
     {
-        str2 = Text::RemoveChar(str2, Text::listOfCharactersToChange[ch]);
+        str2 = Text::RemoveChar(str2, *it);
     }
     return str2;
 }
