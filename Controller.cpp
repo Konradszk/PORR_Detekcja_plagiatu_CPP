@@ -48,8 +48,8 @@ int Controller::sumRepeats(std::map<std::string, int> &min_map) {
 void Controller::check() {
     int sum= sumRepeats(
             minimum(
-                    repeats(baseText.get),
-                    repeats(examinedText.get)
+                    repeats(baseText.getListOfWordsFromText()),
+                    repeats(examinedText.getListOfWordsFromText())
             )
     );
     std::cout<<"Ilość słów w baseText: DOKONCZYC"<<std::endl;
