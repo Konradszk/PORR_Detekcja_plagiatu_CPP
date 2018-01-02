@@ -18,7 +18,7 @@ public:
 private:
 public:
     Text(std::string filePath);
-    std::list<std::string> getListOfWordsFromText();
+    std::list<std::string>  getListOfWordsFromText();
     static std::list<char> listOfCharactersToChange;
     void readText();
 

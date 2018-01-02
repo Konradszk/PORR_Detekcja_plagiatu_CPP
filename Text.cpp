@@ -12,7 +12,7 @@ Text::Text(std::string filePath): filePath(filePath) {
 
 std::list<char> Text::listOfCharactersToChange = {'.', ',', ';', ':', ')', '(', '-', '[', ']', '?', '!'};
 
-std::list<std::string> Text::getListOfWordsFromText() {
+std::list<std::string>  Text::getListOfWordsFromText() {
     return listOfWordsFromText;
 }
 
@@ -29,10 +29,10 @@ void Text::getWordsFromFile() {
         listOfWordsFromText.push_back(resultStr);
     }
     fin.close(); // Close that file!
-
 }
 
 void Text::readText(){
+    std::cout<<"start reading"<<std::endl;
     for (std::list<std::string>::iterator it = listOfWordsFromText.begin(); it!=listOfWordsFromText.end(); it++)
         std::cout << *it << std::endl; // Print so I can see this all worked!
 
