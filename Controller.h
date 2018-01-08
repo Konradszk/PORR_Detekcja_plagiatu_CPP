@@ -16,15 +16,15 @@ public:
 
 private:
 public:
-    Controller( Text &baseText,  Text &examinedText,  Text &wordsToCheckText);
+    Controller( Text &base_text,  Text &examined_text,  Text &words_to_check_text);
     void check();
 private:
-    Text baseText, examinedText, wordsToCheckText;
+    Text base_text, examined_text, words_to_check_text;
     std::list<std::string> words;
 
     std::map<std::string, int> minimum(std::map<std::string, int> a, std::map<std::string, int> b);
 
-    std::map<std::string, int> repeats(std::list<std::string> text);
+    std::map<std::string, int> Repeats(std::list<std::string> text);
     int sumRepeats(std::map<std::string, int> min_map);
 };
 

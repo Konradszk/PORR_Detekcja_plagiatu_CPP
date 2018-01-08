@@ -6,14 +6,14 @@
 
 Controller::Controller() {}
 
-Controller::Controller( Text &baseText,  Text &examinedText,  Text &wordsToCheckText) : baseText(
-        baseText), examinedText(examinedText), wordsToCheckText(wordsToCheckText) {
-    words=wordsToCheckText.getListOfWordsFromText();
+Controller::Controller( Text &base_text,  Text &examined_text,  Text &words_to_check_text) : base_text(
+        base_text), examined_text(examined_text), words_to_check_text(words_to_check_text) {
+    words = words_to_check_text.get_list_of_words_from_text();
 
 }
 
-std::map<std::string, int>  Controller::repeats(std::list<std::string> text) {
-    std::map<std::string, int> countMap;
+std::map<std::string, int>  Controller::Repeats(std::list<std::string> text) {
+    std::map<std::string, int> count_map;
     int count;
     for(auto w=words.begin(); w !=words.end();++w) {
         count = 0;
@@ -21,9 +21,9 @@ std::map<std::string, int>  Controller::repeats(std::list<std::string> text) {
             if (*w == *s)
                 count++;
 
-        countMap[*w]=count;
+        count_map[*w]=count;
     }
-    return countMap;
+    return count_map;
 }
 
 std::map<std::string, int> Controller::minimum(std::map<std::string, int> a, std::map<std::string, int> b) {
@@ -41,7 +41,6 @@ std::map<std::string, int> Controller::minimum(std::map<std::string, int> a, std
 
 int Controller::sumRepeats(std::map<std::string, int> min_map) {
     int min=0;
-
     for(const auto& it : min_map)
         min+=it.second;
     return min;
@@ -50,13 +49,13 @@ int Controller::sumRepeats(std::map<std::string, int> min_map) {
 void Controller::check() {
     int sum= sumRepeats(
             minimum(
-                    repeats(baseText.getListOfWordsFromText()),
-                    repeats(examinedText.getListOfWordsFromText())
+                    Repeats(base_text.get_list_of_words_from_text()),
+                    Repeats(examined_text.get_list_of_words_from_text())
             )
     );
-    std::cout<<"Ilosc slow w textBase: "<<baseText.getListOfWordsFromText().size() <<std::endl;
-    std::cout<<"Ilosc slow w textExamined: "<<examinedText.getListOfWordsFromText().size() <<std::endl;
-    std::cout<<"Poziom podobienstwa: "<<(double)sum/baseText.getListOfWordsFromText().size()*100<<"%" <<std::endl;
+    std::cout<<"Ilosc slow w textBase: "<< base_text.get_list_of_words_from_text().size() <<std::endl;
+    std::cout<<"Ilosc slow w textExamined: "<< examined_text.get_list_of_words_from_text().size() <<std::endl;
+    std::cout<<"Poziom podobienstwa: "<<(double)sum/ base_text.get_list_of_words_from_text().size()*100<<"%" <<std::endl;
 
 
 }
